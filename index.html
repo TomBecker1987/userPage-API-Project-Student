@@ -14,8 +14,19 @@
 <body>
     <div class="container">
         <div class="buttons">
-            <button onclick=loadData()>Load User Data</button>
-            <button onclick=renderData()>Display User</button>
+            <div id="load-data">
+                <button onclick=loadData()>Load User Data</button>
+            </div>
+            <div id="render-data">
+                <button onclick=renderData()>Display User</button>
+            </div>
+            <div id="save-page">
+                <button onclick=saveUserPage()>Save User</button>
+            </div>
+            <div id="load-page">
+                <button id ="load" onclick=render.showUsersToLoad()>Load User</button>
+                <div id="users"></div>
+            </div>
         </div>
         <div class="user-container"></div>
         <div class="quote-container"></div>
@@ -32,6 +43,7 @@
     <!-- ------------------------------- -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    
     <script id="user-template" type="text/x-handlebars-template">
         <div id = "profile-pic" style = "background-image: url({{picture.medium}})"></div>
         <div class="user-info">
@@ -39,7 +51,7 @@
             <div>{{toProperCase location.city}}, {{toProperCase location.state}}</div>
         </div>
     </script>
-    <!-- ----------------------------------------------------->
+        <!-- ----------------------------------------------------->
     <script id="user-friends-template" type="text/x-handlebars-template">
         <ul class="user-friends">
             {{#each friends}}
@@ -66,11 +78,20 @@
             - {{author}}</span>
     </script>
     <!-- ------------------------------------------------------ -->
+    <script id="load-template" type="text/x-handlebars-template">
+        {{#each names}}
+        <button class="dropdown" data-id="{{this}}">{{this}}</button>
+        {{/each}}
+    </script>
+    <!-- ------------------------------------------------------ -->
+
 
     <script src="jquery.js"></script>
-    <script src="Renderer.js"></script>
     <script src="APIManager.js"></script>
+    <script src="Renderer.js"></script>
     <script src="main.js"></script>
 </body>
 
 </html>
+
+

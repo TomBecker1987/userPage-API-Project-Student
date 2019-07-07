@@ -126,3 +126,13 @@ button {
     padding: 1vw;
     font-size: 1vmax;
 }
+
+/* .dropdown {
+    display: none;
+} */
+
+div.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 800px;
+}
